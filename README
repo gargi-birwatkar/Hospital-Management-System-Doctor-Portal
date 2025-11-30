@@ -1,130 +1,125 @@
-🏥 Hospital Management System – Doctor Portal
+# 🏥 Hospital Management System – Doctor Portal
+A secure, desktop-based **Hospital Management System (Doctor Portal)** built using **Java (Swing)** and **MySQL**.
+This system centralizes a doctor's professional activities, allowing them to efficiently manage their **personal profile**, handle **patient appointments**, and organize their **academic research papers**—all within a single, intuitive interface. It is architected using robust **Object-Oriented Programming (OOP)** principles.
 
-A desktop-based **Hospital Management System (Doctor Portal)** built using **Java (Swing)** and **MySQL**.
-The system allows doctors to manage their **profiles**, view/edit **appointments**, and upload/manage **research papers** — all in one place.
-Uses **Object-Oriented Programming (OOP)** concepts throughout the architecture.
+-----
 
----
-
-## 🚀 Features
+## 🚀 Features Overview
 
 ### **1. Doctor Profile Management**
 
-* Dynamic profile loading via Doctor ID
-* Displays profile picture, name, specialization, qualification etc
-* Stores updated information in MySQL database
+  * **Dynamic Loading:** Profile details are dynamically loaded upon login via the Doctor ID.
+  * **Comprehensive View:** Displays essential information like profile picture, name, specialization, and qualifications.
 
+### **2. Appointment Management**
 
-**2. Appointment Management**
+  * **Integrated Scheduling:** Features a built-in calendar view for visual planning.
+  * **CRUD Operations:** Doctors can easily **Add**, **Edit**, and **Delete** scheduled appointments.
+  * **Patient Details:** Shows critical patient information (Name, ID, Contact) for each appointment.
+  * **Real-Time Updates:** On-spot changes are efficiently updated in the database, ensuring accurate daily scheduling.
 
-* Built-in calendar view
-* Doctors can add, edit, and delete appointments
-* Shows patient details
-* On-spot changes updated in real-time
-* Efficient for daily scheduling
+### **3. Research Paper Management**
 
-**3. Research Paper Management**
+  * **CRUD Operations:** Doctors can easily **Add**, **Edit**, and **Delete** their research papers.
+  * **Paper Log:** Maintains a list of all submitted papers associated with the doctor's account.
+  * **Management:** Allows doctors to view and delete submitted papers as needed.
 
-* Upload research papers
-* View list of submitted papers
-* Delete papers if needed
-*Log for Doctors research papers
+-----
 
- 🛠️ Tech Stack
+## 🛠️ Tech Stack & Architecture
 
-| Technology        | Purpose                                               |
-| ----------------- | ----------------------------------------------------- |
-| Java (Swing, AWT) | GUI / Application Logic                               |
-| JDBC              | Database Connectivity                                 |
-| MySQL             | Backend Database                                      |
-| NetBeans IDE      | Development Environment                               |
-| OOP Concepts      | Encapsulation, Abstraction, Inheritance, Polymorphism |
+| Technology | Purpose |
+| :--- | :--- |
+| **Java (Swing, AWT)** | Desktop GUI Development / Core Application Logic |
+| **JDBC** | Standard API for Database Connectivity |
+| **MySQL** | Backend Relational Data Storage |
+| **NetBeans IDE** | Development Environment and Project Management |
+| **OOP Concepts** | Architectural Foundation for maintainability and scalability |
 
+-----
 
 ## 📦 Folder Structure
 
 ```
 HospitalManagementSystem/
-   ├── DoctorPortalProject/     (your netbeans project)
-   ├── doctor database (your exported DB file)
-        └─gargi.sql   
-   ├──  README.md                (Documentation)
+   ├── DoctorPortalProject/     (NetBeans Project Folder)
+        ├── src/              (All Java Source Files)
+        └── lib/              (MySQL Connector JAR file)
+   ├── doctor database/
+        └─gargi.sql          (SQL Database Export File)
+   ├──  README.md              (This Documentation)
 ```
 
- 🗄️ Database (MySQL)
+-----
 
-The database export file is included inside:
+## 🗄️ Database (MySQL)
 
-**/database/hospital.sql**
+The database structure is included in the export file: **/doctor database/gargi.sql**.
 
-It contains the following:
+It contains the following tables:
 
-* Doctor table
-* Patient table
-* Appointment table
-* Research table
-* Sample doctor/patient data
+  * **`Doctor`**: Stores doctor profiles and credentials.
+  * **`Patient`**: Stores registered patient details.
+  * **`Appointment`**: Manages scheduling data, linked to Doctor and Patient IDs.
+  * **`Research`**: Logs research paper.
 
-No MySQL username/password is included → **safe for GitHub**.
-Update dbconfig.properties
+*Note: No sensitive MySQL username/password is included in the repository, making it safe for platforms like GitHub.*
 
----
+-----
 
 ## 🔧 How to Run the Project
 
 ### **1. Import MySQL Database**
 
-1. Open MySQL Workbench
-2. Create a new database:
+1.  Open MySQL Workbench (or your preferred client).
+2.  Execute the following command to create the required database:
+    ```sql
+    CREATE DATABASE gargi;
+    ```
+3.  Import the file **gargi.sql** from the project's `doctor database` folder into the newly created `gargi` database.
 
-   ```
-   CREATE DATABASE gargi;
-   ```
-3. Import the file **doctor database.sql** from the project folder
+### **2. Update Database Connection in Java**
 
----
+Locate the `DBConnection.java` or `dbconfig.properties` file in the source code. Update the credentials to match your local MySQL setup:
 
-### **2. Update DB Connection in Java**
-
-In your `DBConnection.java`:
-
-```java- dbconfig.properties
+```java
+// dbconfig.properties or DBConnection.java
 String url = "jdbc:mysql://localhost:3306/gargi";
-String user = "root";         // Change to your MySQL username
-String password = "";         // Enter your MySQL password
+String user = "root";          // <-- Change to your MySQL username
+String password = "";          // <-- Enter your MySQL password
 ```
-
----
 
 ### **3. Run the Program**
 
-1. Open NetBeans
-2. Select **Open Project**
-3. Choose the project folder
-4. Make sure `mysql-connector.jar` is added in Libraries
-5. Run the main class in dashboad/login_doc.java
+1.  Open **NetBeans IDE**.
+2.  Select **Open Project** and choose the `DoctorPortalProject` folder.
+3.  Ensure the `mysql-connector-java.jar` file is correctly added to the project's **Libraries** (usually found in the `lib` folder).
+4.  Run the main application by executing the class: `dashboard.login_doc.java`.
 
----
+-----
 
-## 🧠 OOP Concepts Used
+## 🧠 OOP Concepts Applied
 
-* **Encapsulation** – private variables + getters/setters
-* **Abstraction** – separate UI, model, and database classes
-* **Inheritance** – base user/doctor classes reused
-* **Polymorphism** – overridden functions for data display and loading
+The system's architecture is built upon the four pillars of OOP:
 
----
+  * **Encapsulation:** Data security is maintained by declaring all variables as `private` and controlling access via public `getter` and `setter` methods.
+  * **Abstraction:** The system is separated into distinct layers: **UI (Swing forms)**, **Model (data objects)**, and **Database (DBConnection class)**, hiding complex internal details.
+  * **Inheritance:** Base classes (e.g., `User` or `Person`) are extended by specific classes (e.g., `Doctor` or `Patient`) to reuse properties and methods.
+  * **Polymorphism:** Method overriding is used to implement different behaviors for similar actions, such as handling data loading logic for different entity types (Doctors vs. Appointments).
+
+-----
 
 ## ✨ Future Improvements
 
-* Add patient login portal
-* Add admin dashboard
-* Implement online appointment system
-* Real-time notifications for new appointments
+  * Implement a separate **Patient Login Portal** to view appointments and records.
+  * Develop a dedicated **Admin Dashboard** for system-wide management.
+  * Integrate an **Online Appointment System** accessible via web or mobile interface.
+  * Add **Real-time Notifications** for new appointments or profile updates.
 
----
+-----
 
-🤝 Contributing
+## 🤝 Contributing
 
-Pull requests are welcome.
-For major changes, open an issue first to discuss what you want to improve.
+We welcome contributions to improve the system.
+
+For major changes or new features, please open an issue first to discuss the proposed improvements. You can then submit a pull request with your changes.
