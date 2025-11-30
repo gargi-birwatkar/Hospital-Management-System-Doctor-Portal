@@ -1,0 +1,130 @@
+🏥 Hospital Management System – Doctor Portal
+
+A desktop-based **Hospital Management System (Doctor Portal)** built using **Java (Swing)** and **MySQL**.
+The system allows doctors to manage their **profiles**, view/edit **appointments**, and upload/manage **research papers** — all in one place.
+Uses **Object-Oriented Programming (OOP)** concepts throughout the architecture.
+
+---
+
+## 🚀 Features
+
+### **1. Doctor Profile Management**
+
+* Dynamic profile loading via Doctor ID
+* Displays profile picture, name, specialization, qualification etc
+* Stores updated information in MySQL database
+
+
+**2. Appointment Management**
+
+* Built-in calendar view
+* Doctors can add, edit, and delete appointments
+* Shows patient details
+* On-spot changes updated in real-time
+* Efficient for daily scheduling
+
+**3. Research Paper Management**
+
+* Upload research papers
+* View list of submitted papers
+* Delete papers if needed
+*Log for Doctors research papers
+
+ 🛠️ Tech Stack
+
+| Technology        | Purpose                                               |
+| ----------------- | ----------------------------------------------------- |
+| Java (Swing, AWT) | GUI / Application Logic                               |
+| JDBC              | Database Connectivity                                 |
+| MySQL             | Backend Database                                      |
+| NetBeans IDE      | Development Environment                               |
+| OOP Concepts      | Encapsulation, Abstraction, Inheritance, Polymorphism |
+
+
+## 📦 Folder Structure
+
+```
+HospitalManagementSystem/
+   ├── DoctorPortalProject/     (your netbeans project)
+   ├── doctor database (your exported DB file)
+        └─gargi.sql   
+   ├──  README.md                (Documentation)
+```
+
+ 🗄️ Database (MySQL)
+
+The database export file is included inside:
+
+**/database/hospital.sql**
+
+It contains the following:
+
+* Doctor table
+* Patient table
+* Appointment table
+* Research table
+* Sample doctor/patient data
+
+No MySQL username/password is included → **safe for GitHub**.
+Update dbconfig.properties
+
+---
+
+## 🔧 How to Run the Project
+
+### **1. Import MySQL Database**
+
+1. Open MySQL Workbench
+2. Create a new database:
+
+   ```
+   CREATE DATABASE gargi;
+   ```
+3. Import the file **doctor database.sql** from the project folder
+
+---
+
+### **2. Update DB Connection in Java**
+
+In your `DBConnection.java`:
+
+```java- dbconfig.properties
+String url = "jdbc:mysql://localhost:3306/gargi";
+String user = "root";         // Change to your MySQL username
+String password = "";         // Enter your MySQL password
+```
+
+---
+
+### **3. Run the Program**
+
+1. Open NetBeans
+2. Select **Open Project**
+3. Choose the project folder
+4. Make sure `mysql-connector.jar` is added in Libraries
+5. Run the main class in dashboad/login_doc.java
+
+---
+
+## 🧠 OOP Concepts Used
+
+* **Encapsulation** – private variables + getters/setters
+* **Abstraction** – separate UI, model, and database classes
+* **Inheritance** – base user/doctor classes reused
+* **Polymorphism** – overridden functions for data display and loading
+
+---
+
+## ✨ Future Improvements
+
+* Add patient login portal
+* Add admin dashboard
+* Implement online appointment system
+* Real-time notifications for new appointments
+
+---
+
+🤝 Contributing
+
+Pull requests are welcome.
+For major changes, open an issue first to discuss what you want to improve.
