@@ -1,4 +1,9 @@
 # 🏥 Hospital Management System – Doctor Portal
+![Java](https://img.shields.io/badge/Java-blue?style=for-the-badge&logo=java&logoColor=white)
+![JDBC](https://img.shields.io/badge/JDBC-green?style=for-the-badge&logo=java&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-blue?style=for-the-badge&logo=mysql&logoColor=white)
+![NetBeans](https://img.shields.io/badge/NetBeans-orange?style=for-the-badge&logo=netbeans&logoColor=white)
+![OOP](https://img.shields.io/badge/OOP-purple?style=for-the-badge&logo=java&logoColor=white)
 
 A secure, desktop-based **Hospital Management System (Doctor Portal)** built using **Java (Swing)** and **MySQL**.
 
